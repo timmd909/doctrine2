@@ -442,6 +442,11 @@ class AnnotationDriver extends AbstractAnnotationDriver
                     $override['joinTable'] = $joinTable;
                 }
 
+                // Check for inversedBy
+                if ($associationOverride->inversedBy) {
+                    $override['inversedBy'] = $associationOverride->inversedBy;
+                }
+
                 $metadata->setAssociationOverride($fieldName, $override);
             }
         }

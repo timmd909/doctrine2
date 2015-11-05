@@ -608,6 +608,11 @@ class YamlDriver extends FileDriver
                     $override['joinTable'] = $joinTable;
                 }
 
+                // Check for inversedBy
+                if (isset($associationOverrideElement['inversedBy'])) {
+                    $override['inversedBy'] = (string) $associationOverrideElement['inversedBy'];
+                }
+
                 $metadata->setAssociationOverride($fieldName, $override);
             }
         }
